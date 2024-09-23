@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yellow Flower</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap');
+        
+        body {
+            height: 100%;
+            margin: 0;
+            background-color: palevioletred;
+        }
+
+        .Fonts {
+            font-family: "Sofadi One", system-ui;
+            font-weight: 400;
+            font-size: x-large;
+            font-style: normal;
+            color: darkblue;
+        }
+
+        .Container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            max-width: 600px;
+        }
+
+        .Input, .ImgCard {
+            border-radius: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 450px;
+            width: 570px;
+            overflow: hidden;
+            background-color: palegoldenrod;
+            transition: transform 1s, width 0.5s, height 0.5s;
+            transform-origin: top;
+            position: absolute;
+            top: 100px;
+        }
+        .Input {
+            cursor: pointer;
+            padding: 0;
+        }
+        .ImgCard {
+            border-radius: 5%;
+            background-color: rgb(172, 209, 241);
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .Input img {
+            display: block;
+            height: 70%;
+            width: 40%;
+            animation: zoomInRotate 1.2s ease-in-out infinite;
+        }
+
+        .Input img, .Input h1, .Input h3 {
+            transition: opacity 0.5s;
+        }
+
+        .Accion {
+            border-radius: 5%;
+            transform: rotateX(-180deg);
+            background-color: rgb(188, 184, 133);
+        }
+
+        .Desface {
+            opacity: 0;
+        }
+
+        .ImgContainer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .Pothos {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .Pothos img {
+            height: 200px;
+            width: auto;
+            background-color: bisque;
+            border: 5px solid aliceblue;
+            padding: 10px;
+            animation: Zoom 1.2s ease-in-out infinite;
+        }
+        @keyframes zoomInRotate {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            25% {
+                transform: scale(0.9) rotate(10deg);
+            }
+            50% {
+                transform: scale(1) rotate(0deg);
+            }
+            75% {
+                transform: scale(0.9) rotate(-10deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes Zoom {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+            
+        }
+
+        /* Ajustes para dispositivos móviles */
+        @media (max-width: 600px) {
+            .Container {
+                max-width: 100vw;
+                max-height: 100vh;
+            }
+
+            .Input, .ImgCard {
+                width: 90vw;
+                height: auto;
+                border-radius: 5%;
+                padding: 10px;
+            }
+
+            .Input img {
+                height: 50%;
+                width: 80%;
+            }
+
+            .ImgCard {
+                width: 90vw;
+                height: 90vw;
+            }
+
+            .Pothos img {
+                height: 100px;
+                width: auto;
+                border: 3px solid aliceblue;
+                padding: 5px;
+                size: 400px;
+            }
+
+            h1, h3 {
+                font-size: 1.2rem;
+            }
+
+            .ImgCard img {
+                width: 100px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+        <div class="Container">
+            <!-- Contenedor para centrar-->
+            <button class="Input" id="Card">
+                <P></P>
+                <img src="Yellow (4).png" alt="Imagen Principal">
+                <h1 class="Fonts"><i>For Angie &#128155&#128155&#128155</i></h1>
+                <h3 class="Fonts"><i>click</i></h3>
+            </button>
+            <div class="ImgCard" id="ImgCard">
+                <div class="ImgContainer">
+                    <div class="Pothos">
+                        <img src="f34098bc1cf5e6de5bfd91870b24d403.png" alt="Photos 1" id="LefPhoto1">
+                        
+                        <p></p>
+                        <img src="f51096506b9be5cae1d7d27e3b549ad3.png" alt="Photos 2" id="LefPhoto2">
+                    </div>
+                    <h1 id="ChanceText" class="Fonts">My girl&#128155</h1>
+                    <div class="Pothos">
+                        <img src="c6aad4096c264c406cc0d329afcc61c2.png" alt="Photos 3" id="RightPhoto1">
+                        <p></p>
+                        <img src="d41ef946c455e1a52cc09145cae1e8c5.png" alt="Photos 4" id="RightPhoto2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let kiss = 1;
+            document.getElementById("Card").addEventListener("click",function() 
+            {   
+                function getRandomInt(max) 
+                {
+                return Math.floor(Math.random() * max);
+                }
+                const imagenes = [
+                    "YellowFlowers-21.09.2024/Yellow (1).png",
+                    "YellowFlowers-21.09.2024/Yellow (2).png",
+                    "YellowFlowers-21.09.2024/Yellow (3).png",
+                    "YellowFlowers-21.09.2024/Yellow (5).png",
+                    "YellowFlowers-21.09.2024/Yellow (6).png",
+                    "YellowFlowers-21.09.2024/Yellow (7).png",
+                    "YellowFlowers-21.09.2024/Yellow (8).png",
+                    "YellowFlowers-21.09.2024/Yellow (9).png",
+                    "YellowFlowers-21.09.2024/Yellow (10).png",
+                    "YellowFlowers-21.09.2024/Yellow (11).png",
+                    "YellowFlowers-21.09.2024/Yellow (12).png",
+                    "YellowFlowers-21.09.2024/Yellow (13).png",
+                    "YellowFlowers-21.09.2024/Yellow (14).png",
+                    "YellowFlowers-21.09.2024/Yellow (15).png",
+                    "YellowFlowers-21.09.2024/Yellow (16).png",
+                    "YellowFlowers-21.09.2024/Yellow (17).png"
+                ]
+                const kissImg = [
+                    "YellowFlowers-21.09.2024/kiss (1).jpg",
+                    "YellowFlowers-21.09.2024/kiss (2).jpg",
+                    "YellowFlowers-21.09.2024/kiss (3).jpg",
+                    "YellowFlowers-21.09.2024/kiss (4).jpg"
+                ]
+                function ChangeText() {
+                    const textElement = document.getElementById("ChanceText");
+                    let texts = ["My girl", "My BB 😽", "My kitty", "Me debes " + kiss + " besos"];
+
+                    textElement.innerText = texts[getRandomInt(texts.length)];
+
+                    if (textElement.innerText === "Me debes " + kiss + " besos") {
+                        kiss +=1;
+                        texts[3] = "Me debes " + kiss + " besos";
+                        document.getElementById("LefPhoto1").src = kissImg[0]
+                        document.getElementById("LefPhoto2").src = kissImg[1]
+                        document.getElementById("RightPhoto1").src = kissImg[2]
+                        document.getElementById("RightPhoto2").src = kissImg[3]
+                    }
+                }
+
+                function ChangeImg(){
+                    document.getElementById("LefPhoto1").src = imagenes[getRandomInt(imagenes.length)]
+                    document.getElementById("LefPhoto2").src = imagenes[getRandomInt(imagenes.length)]
+                    document.getElementById("RightPhoto1").src = imagenes[getRandomInt(imagenes.length)]
+                    document.getElementById("RightPhoto2").src = imagenes[getRandomInt(imagenes.length)]
+                }
+                const Card = this
+                const ImgCar = document.getElementById("ImgCard")
+                const img = document.getElementById("ImgPrincipal");
+
+                if (Card.classList.contains("Accion"))
+                {
+                    Card.classList.remove("Accion")
+                    setTimeout(() => 
+                    {
+                        this.querySelector("img").classList.remove("Desface");
+                        this.querySelector("h1").classList.remove("Desface")
+                        this.querySelector("h3").classList.remove("Desface");
+                        ImgCar.style.opacity = 0;
+                        ImgCar.style.zIndex = -1
+                    },500)
+                } 
+                else 
+                {
+                    ChangeImg()
+                    ChangeText()
+                    Card.classList.add("Accion")
+                    setTimeout(() => 
+                    {
+                        this.querySelector("img").classList.add("Desface");
+                        this.querySelector("h1").classList.add("Desface");
+                        this.querySelector("h3").classList.add("Desface");
+                        ImgCar.style.opacity = 1;
+                        ImgCar.style.zIndex = 1
+                    }       
+                    ,500)
+                }
+            })
+            
+        </script>
+    </body>
+</html>
